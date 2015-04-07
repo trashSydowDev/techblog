@@ -7,8 +7,8 @@ use Blog\Cms\PageRepository;
 
 use Illuminate\Http\Request;
 
-class PagesController extends Controller {
-
+class PagesController extends Controller
+{
     protected $pageRepository;
 
     /**
@@ -133,5 +133,4 @@ class PagesController extends Controller {
 
         return $this->goToAction('App\Http\Controllers\Backend\PagesController@index');
     }
-
 }

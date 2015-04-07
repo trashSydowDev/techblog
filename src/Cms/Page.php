@@ -1,7 +1,7 @@
 <?php
 namespace Blog\Cms;
 
-use Illuminate\Database\Eloquent\Model;
+use Blog\Base\Entity;
 
 /**
  * Page Class
@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package Blog\Cms
  */
-class Page extends Model {
+class Page extends Entity {
 }

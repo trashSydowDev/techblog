@@ -1,6 +1,6 @@
-<?php namespace Blog\Cms;
+<?php
+namespace Blog\Cms;
 
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Post Class

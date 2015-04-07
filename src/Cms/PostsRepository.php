@@ -16,6 +16,7 @@ class PostRepository extends PageRepository
     /**
      * The domain object class that is going to query for using
      * Eloquent methods.
+     *
      * @var string
      */
     public $domainObject = 'Blog\Cms\Post';

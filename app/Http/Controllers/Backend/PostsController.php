@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Backend;
 
+use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Blog\Cms\PostRepository;

@@ -2,13 +2,29 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Backend Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
 */
-
-Route::get('/', 'WelcomeController@index');
+$router->group(
+    [
+        'prefix' => 'admin',
+        'namespace' => 'App\Http\Controllers\Backend'
+    ],
+    function () use ($router) {
+        $router->get(   'pages',          'PagesController@index');
+        $router->get(   'page/{id}',      'PagesController@show');
+        $router->get(   'page/{id}/edit', 'PagesController@edit');
+        $router->get(   'pages/create',   'PagesController@create');
+        $router->delete('page/{id}',      'PagesController@destroy');
+        $router->put(   'page/{id}',      'PagesController@update');
+        $router->post(  'page',           'PagesController@store');
+        $router->get(   'posts',          'PostsController@index');
+        $router->get(   'post/{id}',      'PostsController@show');
+        $router->get(   'post/{id}/edit', 'PostsController@edit');
+        $router->get(   'posts/create',   'PostsController@create');
+        $router->delete('post/{id}',      'PostsController@destroy');
+        $router->put(   'post/{id}',      'PostsController@update');
+        $router->post(  'post',           'PostsController@store');
+    }
+);

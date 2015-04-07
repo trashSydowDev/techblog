@@ -10,12 +10,14 @@ Install [Docker](https://www.docker.com/) on your system.
 
 Install [Docker Compose](http://docs.docker.com/compose/) on your system.
 
+To start the containers
+
 ```bash
 docker-compose build # only the first time
 docker-compose up
 ```
 
-Then you can access the containers doing
+Then you can access the containers with
 
 ```bash
 docker-compose run web /bin/bash # to access the web server container

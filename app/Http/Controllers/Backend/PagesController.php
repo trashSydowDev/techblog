@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Backend;
 
+use App;
 use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -57,7 +58,7 @@ class PagesController extends Controller
     public function store()
     {
         $input = Input::all();
-        $page  = $this->pageRepository->createNew($input, $user);
+        $page  = $this->pageRepository->createNew($input);
 
         if (count($page->errors()) == 0) {
             return $this->goToAction(

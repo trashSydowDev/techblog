@@ -88,7 +88,7 @@ class PageRepository
      *
      * @return Blog\Cms\Page instance
      */
-    public function createNew($input, $user)
+    public function createNew($input)
     {
         $page = App::make($this->domainObject);
 
@@ -96,7 +96,6 @@ class PageRepository
         $page->slug         = array_get($input, 'slug');
         $page->lean_content = array_get($input, 'lean_content');
         $page->content      = array_get($input, 'content');
-        $page->author_id    = $user->id;
         $page->save();
 
         return $page;

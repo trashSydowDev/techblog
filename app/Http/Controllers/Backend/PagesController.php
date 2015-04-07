@@ -3,83 +3,135 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Blog\Cms\PageRepository;
 
 use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
+    protected $pageRepository;
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    /**
+     * Injects dependencies into controller
+     *
+     * @param PageRepository $repo
+     */
+    function __construct(PageRepository $repo)
+    {
+        parent::__construct();
+        $this->pageRepository = $repo;
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $page = Input::get('page', 0);
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        $pages = $this->pageRepository->all($page);
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+        return $this->render('backend.pages.index', compact('pages'));
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $page = App::make('Blog\Cms\Page');
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        return $this->render('backend.pages.create', compact('page'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        $input = Input::all();
+        $page  = $this->pageRepository->createNew($input, $user);
+
+        if (count($page->errors()) == 0) {
+            return $this->goToAction(
+                'App\Http\Controllers\Backend\PagesController@edit',
+                ['id' => $page->id ]
+           );
+        } else {
+            return $this->goToAction('App\Http\Controllers\Backend\PagesController@create')
+                ->withInput($input)
+                ->withErrors($page->errors());
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        $page = $this->pageRepository->findOrFail($id);
+
+        return $this->render('backend.pages.show');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $page = $this->pageRepository->findOrFail($id);
+
+        return $this->render('backend.pages.edit', ['page' => $page]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function update($id)
+    {
+        $input = Input::all();
+        $page  = $this->pageRepository->update($id, $input);
+
+        if (! $page->errors()) {
+            return $this->goToAction('App\Http\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
+                ->withInput($input);
+        } else {
+            return $this->goToAction('App\Http\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
+                ->withInput($input)
+                ->withErrors($page->errors());
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $deleted = $this->pageRepository->delete($id);
+
+        return $this->goToAction('App\Http\Controllers\Backend\PagesController@index');
+    }
 
 }

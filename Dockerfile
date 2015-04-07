@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
         git \
         php5-dev \
         libmcrypt-dev \
-    && docker-php-ext-install mcrypt mbstring zip
+    && docker-php-ext-install mcrypt mbstring zip pdo_mysql
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer \
@@ -19,6 +19,5 @@ RUN echo "log_errors = On" >> /usr/local/etc/php/conf.d/error.ini
 RUN a2enmod rewrite
 
 # Set storage to writable
-RUN chmod -R 777 storage/
-
 COPY . /var/www/html/
+RUN chmod -R 777 storage/

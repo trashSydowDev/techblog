@@ -20,6 +20,6 @@ docker-compose up
 Then you can access the containers with
 
 ```bash
-docker-compose run web /bin/bash # to access the web server container
+docker exec -i -t techblog_web_1 bash # to access the web server container
 mysql --host 127.0.0.1 -u root   # to access the database
 ```

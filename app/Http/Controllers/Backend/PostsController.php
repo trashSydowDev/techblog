@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Blog\Cms\PostRepository;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class PostsController extends Controller
      *
      * @param PostRepository $repo
      */
-    function __construct(PostRepository $repo)
+    public function __construct(PostRepository $repo)
     {
         parent::__construct();
         $this->postRepository = $repo;

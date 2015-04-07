@@ -14,6 +14,11 @@ abstract class Controller extends BaseController {
 
 	use DispatchesCommands, ValidatesRequests;
 
+    public function __construct()
+    {
+
+    }
+
     /**
      * Make a view
      *

@@ -16,7 +16,7 @@ class PagesController extends Controller
      *
      * @param PageRepository $repo
      */
-    function __construct(PageRepository $repo)
+    public function __construct(PageRepository $repo)
     {
         parent::__construct();
         $this->pageRepository = $repo;

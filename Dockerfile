@@ -19,9 +19,10 @@ RUN echo "log_errors = On" >> /usr/local/etc/php/conf.d/error.ini
 RUN a2enmod rewrite
 
 # Install node
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash &&
-    source ~/.bashrc &&
-    nvm install 0.12
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
+RUN . ~/.nvm/nvm.sh && nvm install 0.12.2 \
+    && ln -s /bin/versions/node/v0.12.2/bin/node /usr/bin/node \
+    && ln -s /bin/versions/node/v0.12.2/bin/npm /usr/bin/npm
 
 # Install gulp & bower
 RUN npm install --global gulp; npm install --global bower

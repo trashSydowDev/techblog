@@ -18,6 +18,14 @@ RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" >> /usr/local/etc
 RUN echo "log_errors = On" >> /usr/local/etc/php/conf.d/error.ini
 RUN a2enmod rewrite
 
+# Install node
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash &&
+    source ~/.bashrc &&
+    nvm install 0.12
+
+# Install gulp & bower
+RUN npm install --global gulp; npm install --global bower
+
 # Set storage to writable
 COPY . /var/www/html/
 RUN chmod -R 777 storage/

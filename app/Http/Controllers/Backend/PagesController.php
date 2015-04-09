@@ -62,11 +62,11 @@ class PagesController extends Controller
 
         if (count($page->errors()) == 0) {
             return $this->goToAction(
-                'App\Http\Controllers\Backend\PagesController@edit',
+                'Backend\PagesController@edit',
                 ['id' => $page->id ]
            );
         } else {
-            return $this->goToAction('App\Http\Controllers\Backend\PagesController@create')
+            return $this->goToAction('Backend\PagesController@create')
                 ->withInput($input)
                 ->withErrors($page->errors());
         }
@@ -113,10 +113,10 @@ class PagesController extends Controller
         $page  = $this->pageRepository->update($id, $input);
 
         if (! $page->errors()) {
-            return $this->goToAction('App\Http\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
+            return $this->goToAction('Backend\PagesController@edit', ['id' => $page->id ])
                 ->withInput($input);
         } else {
-            return $this->goToAction('App\Http\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
+            return $this->goToAction('Backend\PagesController@edit', ['id' => $page->id ])
                 ->withInput($input)
                 ->withErrors($page->errors());
         }
@@ -133,6 +133,6 @@ class PagesController extends Controller
     {
         $deleted = $this->pageRepository->delete($id);
 
-        return $this->goToAction('App\Http\Controllers\Backend\PagesController@index');
+        return $this->goToAction('Backend\PagesController@index');
     }
 }

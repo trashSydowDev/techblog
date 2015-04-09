@@ -62,11 +62,11 @@ class PostsController extends Controller
 
         if (count($post->errors()) == 0) {
             return $this->goToAction(
-                'App\Http\Controllers\Backend\PostsController@edit',
+                'Backend\PostsController@edit',
                 ['id' => $post->id ]
            );
         } else {
-            return $this->goToAction('App\Http\Controllers\Backend\PostsController@create')
+            return $this->goToAction('Backend\PostsController@create')
                 ->withInput($input)
                 ->withErrors($post->errors());
         }
@@ -113,10 +113,10 @@ class PostsController extends Controller
         $post  = $this->postRepository->update($id, $input);
 
         if (! $post->errors()) {
-            return $this->goToAction('App\Http\Controllers\Backend\PostsController@edit', ['id' => $post->id ])
+            return $this->goToAction('Backend\PostsController@edit', ['id' => $post->id ])
                 ->withInput($input);
         } else {
-            return $this->goToAction('App\Http\Controllers\Backend\PostsController@edit', ['id' => $post->id ])
+            return $this->goToAction('Backend\PostsController@edit', ['id' => $post->id ])
                 ->withInput($input)
                 ->withErrors($post->errors());
         }
@@ -133,6 +133,6 @@ class PostsController extends Controller
     {
         $deleted = $this->postRepository->delete($id);
 
-        return $this->goToAction('App\Http\Controllers\Backend\PostsController@index');
+        return $this->goToAction('Backend\PostsController@index');
     }
 }

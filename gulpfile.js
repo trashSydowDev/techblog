@@ -12,5 +12,16 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.less([
+        'admin.less',
+        'front.less'
+    ])
+        .copy(
+            'vendor/bower_components/jquery/index.js',
+            'resources/js/vendor/jquery.js'
+        )
+        .scripts([
+            'vendor/**/*.js',
+            '**/*.js'
+        ]);
 });

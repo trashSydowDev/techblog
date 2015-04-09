@@ -17,6 +17,10 @@ elixir(function(mix) {
         'front.less'
     ])
         .copy(
+            'resources/assets/fonts',
+            'public/fonts'
+        )
+        .copy(
             'vendor/bower_components/jquery/index.js',
             'resources/js/vendor/jquery.js'
         )

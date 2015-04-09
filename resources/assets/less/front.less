@@ -1,0 +1,47 @@
+/**
+ * This project uses smacss in order to keep
+ * the stylesheets organized.
+ *
+ * For more details:
+ * http://smacss.com/book/categorizing
+ */
+
+/**
+ * Import mixins
+ *
+ * A set of useful LESS mixins
+ */
+@import "common/mixins/elements";
+
+/**
+ * Import base rules
+ *
+ * Base styles include setting heading sizes,
+ * default link styles, default font styles,
+ * and body backgrounds.
+ */
+@import "common/reset";
+@import "front/base/default";
+
+/**
+ * Import layout rules
+ *
+ * These rules serves as a grid to orient the
+ * element placement.
+ */
+@import "common/layout/general";
+@import "common/layout/grid";
+
+/**
+ * Import modules
+ *
+ * Modules sit inside Layout components and can
+ * sometimes sit within other Modules, too. Each
+ * Module should be designed to exist as a
+ * standalone component.
+ */
+@import "front/module/menu";
+@import "front/module/postcard";
+@import "front/module/social-icon";
+@import "front/module/titlebar";
+@import "front/module/social-links";

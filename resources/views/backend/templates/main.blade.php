@@ -4,7 +4,7 @@
     <title>Pulse Blogging Platform</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -22,8 +22,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="{!! asset('assets/js/vendor.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('assets/js/main.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/all.js') !!}"></script>
     <script>window.app = new App; app.init();</script>
 </body>
 </html>

@@ -2,9 +2,9 @@
 
 @section ('breadcrumb')
     <ul class='breadcrumb'>
-        <li>Pulse</li>
-        <li>{!! link_to_action('Backend\PostsController@index', 'Posts') !!}</li>
-        <li>New Post</li>
+        <li>{{ trans('form.home') }}</li>
+        <li>{!! link_to_action('Backend\PostsController@index', trans('resources.Posts')) !!}</li>
+        <li>{{ trans('form.new') }} {{ trans('resources.Post') }}</li>
     </ul>
 @stop
 

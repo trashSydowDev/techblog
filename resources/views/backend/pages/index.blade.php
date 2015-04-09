@@ -2,15 +2,22 @@
 
 @section ('breadcrumb')
     <ul class='breadcrumb'>
-        <li>Pulse</li>
-        <li>Pages</li>
+        <li>{{ trans('form.home') }}</li>
+        <li>{{ trans('resources.Pages') }}</li>
     </ul>
 @stop
 
 @section ('content')
     <div class="l-block-1">
         <div class='toolbar'>
-            {!! link_to_action('Backend\PagesController@create', 'Criar página', null, ['class'=>'btn']) !!}
+            {!!
+                link_to_action(
+                    'Backend\PagesController@create',
+                    trans('form.create', ['resource'=>trans('resources.Page')]),
+                    null,
+                    ['class'=>'btn']
+                )
+            !!}
         </div>
 
         @if ( $pages && count($pages) > 0 )
@@ -21,7 +28,7 @@
                         <th>{{ trans('resources.attributes.Page.slug') }}</th>
                         <th>{{ trans('resources.attributes.Page.author') }}</th>
                         <th>{{ trans('resources.attributes.Page.created_at') }}</th>
-                        <th>Ações</th>
+                        <th>{{ trans('form.actions') }}</th>
                     </tr>
                 </thead>
 
@@ -43,7 +50,7 @@
                                 {!!
                                     link_to_action(
                                       'Backend\PagesController@edit',
-                                      'Editar',
+                                      trans('form.edit'),
                                       ['id' => $page->id ]
                                     )
                                 !!}
@@ -54,8 +61,8 @@
             </table>
         @else
             <div class='well'>
-                Não existe nenhuma página criada,
-                {!! link_to_action('Backend\PagesController@create', 'crie a primeira!') !!}
+                {{ trans('dialog.there_is_none', ['resource' => strtolower(trans('resources.Pages'))]) }}
+                {!! link_to_action('Backend\PagesController@create', trans('dialog.create_the_first_one')) !!}
             </div>
         @endif
     </div>

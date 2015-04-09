@@ -1,12 +1,12 @@
 @if ($post->id)
-    {!! Form::mode!!(
+    {!! Form::model(
             $post,
             [
                 'action' => ['Backend\PostsController@update', $post->id],
                 'method' => 'PUT',
             ]
         )
-    }}
+    !!}
 @else
     {!! Form::model($post, [ 'action' => 'Backend\PostsController@store' ]) !!}
 @endif
@@ -31,10 +31,10 @@
     </fieldset>
 
     <div class='well'>
-        {!! Form::submit('Salvar Pagina') !!}
-        {!! link_to_action('Backend\PostsController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) !!}
+        {!! Form::submit(trans('form.save', ['resource'=>trans('resources.Post')])) !!}
+        {!! link_to_action('Backend\PostsController@index', trans('form.back'), null, ['class'=>'btn is-inverted']) !!}
         @if ($post->id)
-            {!! link_to_action('Backend\PostsController@destroy', 'Excluir', ['id'=>$post->id], ['method'=>'delete', 'class'=>'btn is-danger']) !!}
+            {!! link_to_action('Backend\PostsController@destroy', trans('form.delete'), ['id'=>$post->id], ['method'=>'delete', 'class'=>'btn is-danger']) !!}
         @endif
     </div>
 

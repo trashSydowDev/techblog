@@ -2,8 +2,11 @@
 
 return array(
     'Post' => 'Blog Post',
+    'Posts' => 'Blog Posts',
     'Page' => 'Page',
+    'Pages' => 'Pages',
     'User' => 'User',
+    'Users' => 'Users',
 
     'attributes' => array(
         'Page' => array(

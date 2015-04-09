@@ -32,10 +32,10 @@
     </fieldset>
 
     <div class='well'>
-        {!! Form::submit('Salvar Pagina') !!}
-        {!! link_to_action('Backend\PagesController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) !!}
+        {!! Form::submit(trans('form.save', ['resource'=>trans('resources.Page')])) !!}
+        {!! link_to_action('Backend\PagesController@index', trans('form.back'), null, ['class'=>'btn is-inverted']) !!}
         @if ($page->id)
-            {!! link_to_action('Backend\PagesController@destroy', 'Excluir', ['id'=>$page->id], ['method'=>'delete', 'class'=>'btn is-danger']) !!}
+            {!! link_to_action('Backend\PagesController@destroy', trans('form.delete'), ['id'=>$page->id], ['method'=>'delete', 'class'=>'btn is-danger']) !!}
         @endif
     </div>
 

@@ -9,7 +9,8 @@
 $router->group(
     [
         'prefix' => 'admin',
-        'namespace' => 'App\Http\Controllers\Backend'
+        'namespace' => 'App\Http\Controllers\Backend',
+        'middleware' => 'auth.basic'
     ],
     function () use ($router) {
         $router->get(   'pages',          'PagesController@index');

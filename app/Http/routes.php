@@ -20,6 +20,7 @@ $router->group(
         $router->delete('page/{id}',      'PagesController@destroy');
         $router->put(   'page/{id}',      'PagesController@update');
         $router->post(  'page',           'PagesController@store');
+
         $router->get(   'posts',          'PostsController@index');
         $router->get(   'post/{id}',      'PostsController@show');
         $router->get(   'post/{id}/edit', 'PostsController@edit');
@@ -27,5 +28,13 @@ $router->group(
         $router->delete('post/{id}',      'PostsController@destroy');
         $router->put(   'post/{id}',      'PostsController@update');
         $router->post(  'post',           'PostsController@store');
+
+        $router->get(   'users',          'UsersController@index');
+        $router->get(   'user/{id}',      'UsersController@show');
+        $router->get(   'user/{id}/edit', 'UsersController@edit');
+        $router->get(   'users/create',   'UsersController@create');
+        $router->delete('user/{id}',      'UsersController@destroy');
+        $router->put(   'user/{id}',      'UsersController@update');
+        $router->post(  'user',           'UsersController@store');
     }
 );

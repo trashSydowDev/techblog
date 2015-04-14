@@ -2,10 +2,29 @@
 
 /*
 |--------------------------------------------------------------------------
+| Frontend Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+$router->group(
+    [
+        'namespace' => 'App\Http\Controllers\Frontend',
+    ],
+    function () use ($router) {
+        $router->get('/',           'CmsController@indexPosts');
+        $router->get('page-{slug}', 'CmsController@showPage');
+        $router->get('{slug}',      'CmsController@showPost');
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
 | Backend Routes
 |--------------------------------------------------------------------------
 |
 */
+
 $router->group(
     [
         'prefix' => 'admin',

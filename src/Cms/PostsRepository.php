@@ -20,4 +20,25 @@ class PostRepository extends PageRepository
      * @var string
      */
     public $domainObject = 'Blog\Cms\Post';
+
+    /**
+     * Create a new instance and persist at database.
+     *
+     * @param  array       $input
+     *
+     * @return Blog\Cms\Post instance
+     */
+    public function createNew($input)
+    {
+        $post = App::make($this->domainObject);
+
+        $post->title        = array_get($input, 'title');
+        $post->slug         = array_get($input, 'slug');
+        $post->lean_content = array_get($input, 'lean_content');
+        $post->content      = array_get($input, 'content');
+        $post->author_id    = array_get($input, 'author_id');
+        $post->save();
+
+        return $post;
+    }
 }

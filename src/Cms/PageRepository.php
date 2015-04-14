@@ -42,7 +42,6 @@ class PageRepository extends BaseRepository
      * Create a new instance and persist at database.
      *
      * @param  array       $input
-     * @param  Object User $user
      *
      * @return Blog\Cms\Page instance
      */

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Backend;
 
 use App;
 use Input;
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Blog\Cms\PostRepository;
@@ -58,7 +59,10 @@ class PostsController extends Controller
     public function store()
     {
         $input = Input::all();
-        $post  = $this->postRepository->createNew($input, $user);
+        $user  = Auth::user();
+
+        $input['author_id'] = $user->id;
+        $post  = $this->postRepository->createNew($input);
 
         if (count($post->errors()) == 0) {
             return $this->goToAction(

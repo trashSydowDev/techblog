@@ -12,5 +12,4 @@
     <li>
         {!! link_to_action('Backend\UsersController@index', trans('resources.Users')) !!}
     </li>
-
 </ul>

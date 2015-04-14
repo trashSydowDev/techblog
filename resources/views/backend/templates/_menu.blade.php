@@ -4,10 +4,13 @@
         <a href="#">Dashboard</a>
     </li>
     <li>
-    {!! link_to_action('Backend\PostsController@index', 'Posts') !!}
+        {!! link_to_action('Backend\PostsController@index', trans('resources.Posts')) !!}
     </li>
     <li>
-    {!! link_to_action('Backend\PagesController@index', 'Pages') !!}
+        {!! link_to_action('Backend\PagesController@index', trans('resources.Pages')) !!}
+    </li>
+    <li>
+        {!! link_to_action('Backend\UsersController@index', trans('resources.Users')) !!}
     </li>
     <li>
         <a href="#">Settings</a>

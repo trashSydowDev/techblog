@@ -12,8 +12,5 @@
     <li>
         {!! link_to_action('Backend\UsersController@index', trans('resources.Users')) !!}
     </li>
-    <li>
-        <a href="#">Settings</a>
-    </li>
 
 </ul>

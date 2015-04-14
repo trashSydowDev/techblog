@@ -24,6 +24,12 @@ return array(
             'content'      => 'Content',
             'author'       => 'Author',
             'created_at'   => 'Created at',
+        ),
+        'User' => array(
+            'name'       => 'Name',
+            'email'      => 'E-mail',
+            'password'   => 'Password',
+            'created_at' => 'Created at',
         )
     )
 );

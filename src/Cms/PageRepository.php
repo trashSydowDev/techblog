@@ -2,6 +2,8 @@
 namespace Blog\Cms;
 
 use App;
+use Blog\Base\Repository as BaseRepository;
+
 /**
  * Class PageRepository
  *
@@ -10,7 +12,7 @@ use App;
  *
  * @package  Blog\Cms
  */
-class PageRepository
+class PageRepository extends BaseRepository
 {
     /**
      * The domain object class that is going to query for using
@@ -19,50 +21,6 @@ class PageRepository
      * @var string
      */
     public $domainObject = 'Blog\Cms\Page';
-
-    /**
-     * Returns all the pages. Paginates results using the $pagination parameter
-     *
-     * @param  integer $pagination Pagination value
-     *
-     * @return Illuminate\Pagination\Paginator
-     */
-    public function all($pagination = 0)
-    {
-        $instance = App::make($this->domainObject);
-
-        return $instance::paginate($pagination);
-    }
-
-    /**
-     * Finds a Page by the given id
-     *
-     * @param  integer $id Page id
-     *
-     * @return Page A Page object or null.
-     */
-    public function find($id)
-    {
-        $instance = App::make($this->domainObject);
-
-        return $instance::find($id);
-    }
-
-    /**
-     * Finds a Page by the given id or throw exception
-     *
-     * @param  integer $id Page id
-     *
-     * @return Page A Page object or null.
-     *
-     * @throws Illuminate\Database\Eloquent\ModelNotFoundException
-     */
-    public function findOrFail($id)
-    {
-        $instance = App::make($this->domainObject);
-
-        return $instance::findOrFail($id);
-    }
 
     /**
      * Finds a Page by the given slug
@@ -104,14 +62,14 @@ class PageRepository
     /**
      * Update a page resource given.
      *
-     * @param  int   $page_id
+     * @param  int   $id
      * @param  array $input
      *
      * @return null| Page Object
      */
-    public function update($page_id, $input)
+    public function update($id, $input)
     {
-        $page = $this->findOrFail($page_id);
+        $page = $this->findOrFail($id);
 
         $page->title        = array_get($input, 'title');
         $page->slug         = array_get($input, 'slug');

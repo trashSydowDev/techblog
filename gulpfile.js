@@ -21,6 +21,10 @@ elixir(function(mix) {
             'public/fonts'
         )
         .copy(
+            'resources/assets/img',
+            'public/img'
+        )
+        .copy(
             'vendor/bower_components/jquery/index.js',
             'resources/js/vendor/jquery.js'
         )

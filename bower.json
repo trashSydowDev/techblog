@@ -1,6 +1,8 @@
 {
     "name": "Leroy Merlin Techblog",
     "dependencies": {
-        "jquery": "http://code.jquery.com/jquery-1.11.2.min.js"
+        "jquery": "http://code.jquery.com/jquery-1.11.2.min.js",
+        "highlightjs": "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js",
+        "highlightcss": "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/codepen-embed.min.css"
     }
 }

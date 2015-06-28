@@ -17,7 +17,21 @@ docker-compose build # only the first time
 docker-compose up
 ```
 
-Then you can access the containers with
+If you are running the application for the first time you should
+run the migrations and the default gulp task (to compile the assets)
+
+```bash
+docker exec -i -t techblog_web_1 php artisan migrate # run migrations
+docker exec -i -t techblog_web_1 gulp # run laravel's elixir
+```
+
+Latter, you ran keep the elixir watcher running with
+
+```bash
+docker exec -i -t techblog_web_1 gulp watch
+```
+
+Finally, you can access the containers interactively with
 
 ```bash
 docker exec -i -t techblog_web_1 bash # to access the web server container

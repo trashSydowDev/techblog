@@ -9,6 +9,7 @@
         <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
         <title>{{ Config::get('blog.blogname') }}{{ (Config::get('blog.blogdesc') ? ' - '.Config::get('blog.blogdesc') : '') }}</title>
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/all.js') }}" type="text/javascript"></script>
     </head>
 
     <body>
@@ -24,4 +25,5 @@
             @include('front.templates._footer')
         </footer>
     </body>
+    <script type="text/javascript">app = new App(); app.init();</script>
 </html>

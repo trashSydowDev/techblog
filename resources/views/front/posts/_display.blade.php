@@ -1,6 +1,6 @@
 <h1>
     {{ $page->title }}
 </h1>
-<div class="markdown-markup">
+<div class="markdown-markup" data-module="CodeHighlight">
     {!! $htmlContent !!}
 </div>

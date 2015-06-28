@@ -21,8 +21,10 @@ If you are running the application for the first time you should
 run the migrations and the default gulp task (to compile the assets)
 
 ```bash
+docker exec -i -t techblog_web_1 composer install    # install php dependencies
+docker exec -i -t techblog_web_1 bower install       # install front-end dependencies
 docker exec -i -t techblog_web_1 php artisan migrate # run migrations
-docker exec -i -t techblog_web_1 gulp # run laravel's elixir
+docker exec -i -t techblog_web_1 gulp                # run laravel's elixir
 ```
 
 Latter, you ran keep the elixir watcher running with

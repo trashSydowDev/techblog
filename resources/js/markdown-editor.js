@@ -1,4 +1,3 @@
-
 function MarkdownEditor($el) { this.init($el); }
 
 MarkdownEditor.prototype.init = function($el) {

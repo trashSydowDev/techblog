@@ -79,30 +79,43 @@ a {
     }
 }
 
-b {
+b,strong {
     font-weight: bold;
 }
 
-i {
+i,em {
     font-style: italic;
 }
 
 em {
-    color: @colorMain;
+    color: @colorLightGray;
 }
 
 hr {
     border: solid 2px @colorPastel;
 }
 
-pre, code {
+code {
     font-family: monospace;
     font-size: 14px;
-    background-color: @colorBlack;
-    color: @colorWhite;
+    background-color: @colorPastel;
+    color: @colorBlack;
     opacity: 0.8;
     padding: 5px;
     margin: 5px 0;
+}
+
+pre {
+    background-color: @colorGray;
+    padding: 5px;
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+pre code {
+    background-color: transparent;
+    color: @colorWhite;
+    opacity: 1;
 
     &.is-inline {
         display: inline;

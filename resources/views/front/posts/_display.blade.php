@@ -1,4 +1,6 @@
 <h1>
     {{ $page->title }}
 </h1>
-{!! $htmlContent !!}
+<div class="markdown-markup">
+    {!! $htmlContent !!}
+</div>

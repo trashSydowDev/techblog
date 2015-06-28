@@ -12,11 +12,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less([
-        'admin.less',
-        'front.less'
-    ])
-        .copy(
+    mix.copy(
             'resources/assets/fonts',
             'public/fonts'
         )
@@ -28,6 +24,18 @@ elixir(function(mix) {
             'vendor/bower_components/jquery/index.js',
             'resources/js/vendor/jquery.js'
         )
+        .copy(
+            'vendor/bower_components/highlightjs/index.js',
+            'resources/js/vendor/highlight.js'
+        )
+        .copy(
+            'vendor/bower_components/highlightcss/index.css',
+            'resources/assets/less/vendor/highlight.less'
+        )
+        .less([
+            'admin.less',
+            'front.less'
+        ])
         .scripts([
             'vendor/**/*.js',
             '**/*.js'

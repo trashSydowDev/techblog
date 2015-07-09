@@ -37,5 +37,6 @@ Finally, you can access the containers interactively with
 
 ```bash
 docker exec -i -t techblog_web_1 bash # to access the web server container
+docker exec -i -t techblog_web_1 php artisan tinker # to access Laravel's REPL
 mysql --host 127.0.0.1 -u root   # to access the database
 ```

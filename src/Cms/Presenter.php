@@ -41,12 +41,13 @@ class Presenter
         $htmlContent = $mdParser->transform($this->instance->content);
 
         $viewVars = [
-            'page' => $this->instance,
+            'page'        => $this->instance,
+            'author'      => $this->instance->author,
             'htmlContent' => $htmlContent
         ];
 
         // Due to the polymorphy
-        if($this->instance instanceOf Post) {
+        if ($this->instance instanceof Post) {
             return View::make('front.posts._display', $viewVars);
         } else {
             return View::make('front.pages._display', $viewVars);

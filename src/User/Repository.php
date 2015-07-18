@@ -50,8 +50,9 @@ class Repository extends BaseRepository
     {
         $user = App::make($this->domainObject);
 
-        $user->name     = array_get($input, 'name');
-        $user->email    = array_get($input, 'email');
+        $user->name    = array_get($input, 'name');
+        $user->email   = array_get($input, 'email');
+        $user->website = array_get($input, 'website');
         $user->password = Hash::make(
             array_get($input, 'password')
         );
@@ -72,8 +73,9 @@ class Repository extends BaseRepository
     {
         $user = $this->findOrFail($id);
 
-        $user->name     = array_get($input, 'name');
-        $user->email    = array_get($input, 'email');
+        $user->name    = array_get($input, 'name');
+        $user->email   = array_get($input, 'email');
+        $user->website = array_get($input, 'website');
         $user->password = Hash::make(
             array_get($input, 'password')
         );

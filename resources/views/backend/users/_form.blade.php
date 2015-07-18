@@ -22,6 +22,11 @@
     </fieldset>
 
     <fieldset>
+        {!! Form::label('website', trans('resources.attributes.User.website')) !!}
+        {!! Form::text('website') !!}
+    </fieldset>
+
+    <fieldset>
         {!! Form::label('password', trans('resources.attributes.User.password')) !!}
         {!! Form::password('password') !!}
     </fieldset>

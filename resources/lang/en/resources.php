@@ -28,6 +28,7 @@ return array(
         'User' => array(
             'name'       => 'Name',
             'email'      => 'E-mail',
+            'website'    => 'Website',
             'password'   => 'Password',
             'created_at' => 'Created at',
         )

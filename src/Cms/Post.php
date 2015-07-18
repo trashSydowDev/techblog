@@ -1,6 +1,7 @@
 <?php
 namespace Blog\Cms;
 
+use Blog\User\User;
 
 /**
  * Post Class
@@ -12,4 +13,14 @@ namespace Blog\Cms;
  * @package Blog\Cms
  */
 class Post extends Page {
+
+    /**
+     * Retrieves the author of the post
+     *
+     * @return User
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }

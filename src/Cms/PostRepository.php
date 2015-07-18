@@ -22,6 +22,23 @@ class PostRepository extends PageRepository
     public $domainObject = 'Blog\Cms\Post';
 
     /**
+     * Finds a Post and it's author by the given slug
+     *
+     * @param  string $slug Post slug
+     *
+     * @return Post A Post object with the author (User) eager loaded.
+     *
+     * @throws Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function findBySlug($slug)
+    {
+        $instance = App::make($this->domainObject);
+
+        return $instance::with('author')
+            ->where('slug', $slug)->firstOrFail();
+    }
+
+    /**
      * Create a new instance and persist at database.
      *
      * @param  array       $input

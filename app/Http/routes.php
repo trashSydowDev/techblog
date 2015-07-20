@@ -13,6 +13,7 @@ $router->group(
     ],
     function () use ($router) {
         $router->get('/',           'CmsController@indexPosts');
+        $router->get('rss.xml',     'CmsController@feedPosts');
         $router->get('page-{slug}', 'CmsController@showPage');
         $router->get('{slug}',      'CmsController@showPost');
     }

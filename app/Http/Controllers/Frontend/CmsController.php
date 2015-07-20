@@ -11,7 +11,7 @@ class CmsController extends Controller
     /**
      * Displays the blog post index for the given page
      *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function indexPosts()
     {
@@ -28,11 +28,27 @@ class CmsController extends Controller
     }
 
     /**
+     * Displays a RSS 2.0 feed of the posts
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function feedPosts()
+    {
+        $repo  = App::make('Blog\Cms\PostRepository');
+        $posts = $repo->all();
+
+        $content = $this->render('front.posts.feed', compact('posts'));
+
+        return response($content)
+            ->header('Content-Type', 'application/xml');
+    }
+
+    /**
      * Show a post by slug
      *
      * @param  string $slug The post slug
      *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function showPost($slug)
     {
@@ -55,7 +71,7 @@ class CmsController extends Controller
      *
      * @param  string $slug The page slug
      *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function showPage($slug)
     {

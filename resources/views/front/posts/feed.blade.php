@@ -13,7 +13,7 @@
       <item>
         <title><![CDATA[{{ $post->title }}]]></title>
         <link>{{ action('Frontend\CmsController@showPost', ['slug'=>$post->slug]) }}</link>
-        <guid>{{ action('Frontend\CmsController@showPost', ['slug'=>$post->slug]) }}</link>
+        <guid>{{ action('Frontend\CmsController@showPost', ['slug'=>$post->slug]) }}</guid>
         <description><![CDATA[{{ $post->lean_content }}]]></description>
         <pubDate>{{ date('r', strtotime($post->created_at)) }}</pubDate>
       </item>
